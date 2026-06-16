@@ -11,14 +11,14 @@
     
     <style>
         :root {
-            /* 건양대학교 메인 그린 컬러 톤 및 서브 컬러 설정 */
-            --primary-color: #005a3c;
-            --primary-light: #007a52;
-            --bg-color: #f8fafc;
-            --text-color: #1f2937;
-            --text-light: #64748b;
+            /* 모던 블랙 & 화이트 테마 설정 */
+            --primary-color: #000000;
+            --primary-light: #333333;
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --text-light: #4b5563;
             --white: #ffffff;
-            --transition: all 0.3s ease;
+            --transition: all 0.25s ease-in-out;
         }
 
         * {
@@ -29,9 +29,9 @@
 
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: var(--bg-color);
+            background-color: #ffffff;
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
             padding-top: 70px; /* 네비게이션 바 높이 고려 */
         }
 
@@ -42,8 +42,8 @@
             left: 0;
             width: 100%;
             height: 70px;
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 2px solid #000000;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -85,14 +85,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #000000;
+            background-color: #f9f9f9;
         }
 
         .profile-container {
             display: flex;
             align-items: center;
             gap: 40px;
-            max-width: 1000px;
+            max-width: 1100px;
             width: 100%;
         }
 
@@ -101,13 +102,15 @@
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--primary-light);
+            border: 5px solid #000000;
+            filter: grayscale(20%); /* 약간의 그레이스케일로 분위기 추가 */
         }
 
         .profile-info h1 {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
+            font-weight: 700;
             margin-bottom: 10px;
-            color: var(--text-color);
+            letter-spacing: -1px;
         }
 
         .profile-info .subtitle {
@@ -131,13 +134,14 @@
         }
 
         .tag {
-            background-color: #f1f5f9;
+            background-color: #ffffff;
             color: var(--text-color);
             padding: 6px 14px;
-            border-radius: 20px;
+            border-radius: 4px; /* 둥근 느낌 대신 각진 모던함 */
             font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid #e2e8f0;
+            font-weight: 600;
+            border: 1.5px solid #000000;
+            text-transform: uppercase;
         }
 
         /* 프로젝트 카드 섹션 */
@@ -158,9 +162,9 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-light);
+            width: 60px;
+            height: 4px;
+            background-color: #000000;
             margin: 8px auto 0;
         }
 
@@ -174,13 +178,13 @@
             background-color: var(--white);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: none;
             transition: var(--transition);
-            border: 1px solid #e2e8f0;
+            border: 2px solid #000000;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
@@ -220,6 +224,58 @@
             margin-top: 60px;
         }
 
+        /* 추가 섹션 공통 스타일 */
+        .section-padding {
+            padding: 50px 5%;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .container-center {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .vision-text {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            line-height: 1.8;
+            word-break: keep-all;
+            font-weight: 400;
+            margin-top: 20px;
+            font-style: italic;
+            max-width: 900px;
+            margin: 20px auto 0;
+        }
+
+        .club-card {
+            display: inline-block;
+            background-color: var(--white);
+            padding: 20px 40px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 2px solid #000000;
+        }
+
+        .flex-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        /* 강조 태그 스타일 */
+        .tag-highlight {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        /* 링크 효과 강화 */
+        a:hover {
+            text-decoration: underline !important;
+        }
+
         /* 반응형 모바일 처리 */
         @media (max-width: 768px) {
             .profile-container {
@@ -244,13 +300,13 @@
     <!-- 상단 네비게이션 바 (Top Nav) -->
     <nav class="navbar">
         <a href="#" class="nav-logo">
-            <i class="fa-solid fa-graduation-cap"></i> My Portfolio
+            <i class="fa-solid fa-code"></i> BEOMJUN.KOO
         </a>
         <ul class="nav-menu">
-            <li><a href="#" class="active">모던 버전 1</a></li>
-            <li><a href="#">모던 버전 2</a></li>
-            <li><a href="#">DX/XR Lab</a></li>
-            <li><a href="#">기본 프로필</a></li>
+            <li><a href="#" class="active">HOME</a></li>
+            <li><a href="#">PROJECTS</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">CONTACT</a></li>
         </ul>
     </nav>
 
@@ -258,10 +314,18 @@
     <section class="hero">
         <div class="profile-container">
             <!-- 범준님의 프로필 이미지 -->
-            <img src="my_profile.jpg" alt="프로필 이미지" class="profile-img">
+            <img src="my_profile.png" alt="구범준 프로필 사진" class="profile-img">
             <div class="profile-info">
                 <h1>구범준 (Koo Beomjun)</h1>
                 <div class="subtitle">국방XR학부 학생 | 게임 개발 및 VR기술 전문가</div>
+                <div class="contact-email" style="margin-bottom: 15px; font-size: 1rem; color: var(--text-light);">
+                    <span style="margin-right: 15px;">
+                        <i class="fa-solid fa-envelope" style="color: #000; margin-right: 8px;"></i>
+                        <a href="mailto:gbj4335@naver.com" style="color: inherit; text-decoration: none; transition: var(--transition);">gbj4335@naver.com</a>
+                    </span>
+                    <i class="fa-brands fa-github" style="color: #000; margin-right: 8px;"></i>
+                    <a href="https://github.com" target="_blank" style="color: inherit; text-decoration: none; transition: var(--transition);">GitHub</a>
+                </div>
                 <p class="description">안녕하세요! 가상과 현실을 잇는 기술에 매력을 느껴 AI와 XR(확장현실) 분야를 깊이 있게 공부하고 있는 국방XR학부 구범준입니다. 사용자에게 몰입감 넘치는 경험을 선사하는 콘텐츠 개발자를 목표로 다양한 프로젝트에 도전하고 있습니다.</p>
                 <!-- 기술 스택 태그 영역 -->
                 <div class="skills-tags">
@@ -273,20 +337,20 @@
     </section>
 
     <!-- 수강 과목 섹션 추가 -->
-    <section class="courses" style="padding: 40px 5%; border-bottom: 1px solid #e2e8f0;">
-        <div style="max-width: 1100px; margin: 0 auto;">
-            <h2 class="section-title" style="margin-bottom: 20px;">Current Courses</h2>
+    <section class="courses section-padding">
+        <div class="container-center">
+            <h2 class="section-title">Current Courses</h2>
             <div class="skills-tags" style="justify-content: center; gap: 15px;">
-                <span class="tag" style="padding: 10px 20px; font-size: 1rem;">
-                    <i class="fa-solid fa-cube" style="margin-right: 8px; color: var(--primary-light);"></i>
+                <span class="tag">
+                    <i class="fa-solid fa-cube" style="margin-right: 8px;"></i>
                     메타버스프로그래밍
                 </span>
-                <span class="tag" style="padding: 10px 20px; font-size: 1rem;">
-                    <i class="fa-solid fa-map-location-dot" style="margin-right: 8px; color: var(--primary-light);"></i>
+                <span class="tag">
+                    <i class="fa-solid fa-map-location-dot" style="margin-right: 8px;"></i>
                     XR문화지형도
                 </span>
-                <span class="tag" style="padding: 10px 20px; font-size: 1rem;">
-                    <i class="fa-solid fa-clapperboard" style="margin-right: 8px; color: var(--primary-light);"></i>
+                <span class="tag">
+                    <i class="fa-solid fa-clapperboard" style="margin-right: 8px;"></i>
                     실감미디어
                 </span>
             </div>
@@ -294,11 +358,11 @@
     </section>
 
     <!-- 동아리 섹션 추가 -->
-    <section class="club" style="padding: 40px 5%; background-color: #f1f5f9; border-bottom: 1px solid #e2e8f0;">
-        <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
-            <h2 class="section-title" style="margin-bottom: 20px;">Club Activity</h2>
-            <div style="display: inline-block; background-color: var(--white); padding: 20px 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                <i class="fa-solid fa-users-rays" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+    <section class="club section-padding" style="background-color: #ffffff;">
+        <div class="container-center">
+            <h2 class="section-title">Club Activity</h2>
+            <div class="club-card">
+                <i class="fa-solid fa-users-rays" style="font-size: 2rem; color: #000; margin-bottom: 10px;"></i>
                 <h3 style="font-size: 1.4rem; color: var(--text-color);">학과 동아리: 예인</h3>
                 <p style="color: var(--text-light); margin-top: 8px;">
                     국방XR학부의 창의적인 프로젝트와 협업을 실천하는 학과 동아리 '예인'에서 활동하고 있습니다.
@@ -308,10 +372,10 @@
     </section>
 
     <!-- 비전 섹션 추가 -->
-    <section class="vision" style="padding: 60px 5%; background-color: var(--white); border-bottom: 1px solid #e2e8f0;">
-        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <section class="vision section-padding">
+        <div class="container-center">
             <h2 class="section-title">My Vision</h2>
-            <p style="font-size: 1.2rem; color: var(--text-color); line-height: 1.8; word-break: keep-all; font-weight: 400; margin-top: 20px; font-style: italic;">
+            <p class="vision-text">
                 "가상과 현실의 경계를 허무는 혁신적인 미디어 콘텐츠의 미래를 설계하고자 합니다. 차세대 실감형 기술력을 바탕으로 몰입도 높은 가상 공간과 인터랙티브 미디어를 창조하고, 
                 여기에 차별화된 스토리텔링을 더해 트렌드를 선도하는 가치 있는 디지털 콘텐츠 에코시스템을 구축해 나가는 것이 저의 비전입니다."
             </p>
@@ -319,22 +383,22 @@
     </section>
 
     <!-- 강점 및 관심분야 섹션 추가 -->
-    <section class="strengths-interests" style="padding: 50px 5%; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0;">
-        <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px;">
+    <section class="strengths-interests section-padding" style="background-color: #f8fafc;">
+        <div class="container-center flex-row">
             <!-- 강점 섹션 -->
-            <div style="text-align: center; flex: 1; min-width: 280px;">
-                <h2 class="section-title" style="margin-bottom: 25px;">My Strengths</h2>
+            <div style="flex: 1; min-width: 280px;">
+                <h2 class="section-title">My Strengths</h2>
                 <div class="skills-tags" style="justify-content: center; gap: 15px;">
-                    <span class="tag" style="padding: 10px 25px; font-size: 1.05rem; background-color: var(--primary-color); color: white; border: none;"># 끈기</span>
-                    <span class="tag" style="padding: 10px 25px; font-size: 1.05rem; background-color: var(--primary-color); color: white; border: none;"># 용기</span>
+                    <span class="tag tag-highlight"># 끈기</span>
+                    <span class="tag tag-highlight"># 용기</span>
                 </div>
             </div>
             <!-- 관심분야 섹션 -->
-            <div style="text-align: center; flex: 1; min-width: 280px;">
-                <h2 class="section-title" style="margin-bottom: 25px;">Interests</h2>
+            <div style="flex: 1; min-width: 280px;">
+                <h2 class="section-title">Interests</h2>
                 <div class="skills-tags" style="justify-content: center; gap: 15px;">
-                    <span class="tag" style="padding: 10px 25px; font-size: 1.05rem; border: 2px solid var(--primary-light);">XR분야</span>
-                    <span class="tag" style="padding: 10px 25px; font-size: 1.05rem; border: 2px solid var(--primary-light);">디지털콘텐츠 분야</span>
+                    <span class="tag" style="border: 2px solid #000;">XR분야</span>
+                    <span class="tag" style="border: 2px solid #000;">디지털콘텐츠 분야</span>
                 </div>
             </div>
         </div>
@@ -360,7 +424,14 @@
 
     <!-- 푸터 영역 -->
     <footer>
-        <p>&copy; 2026 Koo Beomjun. All Rights Reserved. | 건양대학교 국방XR학부 실습</p>
+        <div style="margin-bottom: 10px;">
+            <i class="fa-solid fa-envelope" style="margin-right: 5px;"></i>
+            <a href="mailto:gbj4335@naver.com" style="color: white; text-decoration: none;">gbj4335@naver.com</a>
+            <span style="margin: 0 10px;">|</span>
+            <i class="fa-brands fa-github" style="margin-right: 5px;"></i>
+            <a href="https://github.com" target="_blank" style="color: white; text-decoration: none;">GitHub</a>
+        </div>
+        <p>&copy; 2024 Koo Beomjun. All Rights Reserved. | 건양대학교 국방XR학부 실습</p>
     </footer>
 
 </body>
